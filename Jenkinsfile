@@ -3,7 +3,6 @@ pipeline {
   stages {
     stage('Pester') {
       steps {
-        sh 'echo "hello"'
         powershell(script: './add-numbers.test.ps1', returnStatus: true)
       }
     }
