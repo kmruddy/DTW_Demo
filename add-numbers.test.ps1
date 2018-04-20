@@ -1,5 +1,5 @@
 $here = Split-Path -Parent $MyInvocation.MyCommand.Path
-"Import-Module $here\Add-Numbers.psm1"
+Import-Module "$here\Add-Numbers.psm1"
 
 Describe -Tags "Example" "Add-Numbers" {
 
