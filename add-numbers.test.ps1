@@ -22,5 +22,3 @@ Describe -Tags "Example" "Add-Numbers" {
         Add-Numbers 2 3 | Should -Not -Be 0
     }
 }
-
-Invoke-Pester
