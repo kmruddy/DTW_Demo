@@ -4,6 +4,7 @@ pipeline {
     stage('Pester') {
       steps {
         powershell(script: './add-numbers.test.ps1', returnStatus: true)
+        powershell '. $env:workspace'
       }
     }
     stage('Create Manifest') {
