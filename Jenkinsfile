@@ -1,18 +1,10 @@
 pipeline {
   agent any
   stages {
-    stage('Test Phase') {
-      parallel {
-        stage('Pester') {
-          steps {
-            sh 'echo "hello"'
-          }
-        }
-        stage('PSScriptAnalyzer') {
-          steps {
-            sh 'echo "hello"'
-          }
-        }
+    stage('Pester') {
+      steps {
+        sh 'echo "hello"'
+        powershell(script: './add-numbers.test.ps1', returnStatus: true)
       }
     }
     stage('Create Manifest') {
