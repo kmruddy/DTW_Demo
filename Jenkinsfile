@@ -14,14 +14,6 @@ pipeline {
             powershell(script: 'Invoke-ScriptAnalyzer -Path "$env:workspace\\add-numbers.psm1"', returnStatus: true)
           }
         }
-        stage('') {
-          steps {
-            catchError() {
-              powershell(script: 'write-error "error"', returnStatus: true)
-            }
-
-          }
-        }
       }
     }
     stage('Publish to Nexus') {
