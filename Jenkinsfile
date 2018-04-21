@@ -10,19 +10,14 @@ pipeline {
         }
         stage('PSScriptAnalyzer') {
           steps {
-            powershell(script: 'Invoke-Pester -Path "$env:workspace\\add-numbers.psm1"', returnStatus: true)
+            powershell(script: 'Invoke-ScriptAnalyzer -Path "$env:workspace\\add-numbers.psm1"', returnStatus: true)
           }
         }
       }
     }
-    stage('Create Manifest') {
-      steps {
-        sh 'echo "hello"'
-      }
-    }
     stage('Publish to Nexus') {
       steps {
-        sh 'echo "hello"'
+        powershell(script: 'write-host "hi"', returnStatus: true, returnStdout: true)
       }
     }
   }
