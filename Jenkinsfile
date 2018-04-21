@@ -6,11 +6,20 @@ pipeline {
         stage('Pester') {
           steps {
             powershell(script: 'Invoke-Pester -Path "$env:workspace\\add-numbers.test.ps1"', returnStatus: true)
+            nunit(testResultsPattern: 'pester-output.xml', failIfNoResults: true)
           }
         }
         stage('PSScriptAnalyzer') {
           steps {
             powershell(script: 'Invoke-ScriptAnalyzer -Path "$env:workspace\\add-numbers.psm1"', returnStatus: true)
+          }
+        }
+        stage('') {
+          steps {
+            catchError() {
+              powershell(script: 'write-error "error"', returnStatus: true)
+            }
+
           }
         }
       }
