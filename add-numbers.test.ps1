@@ -3,7 +3,7 @@ Import-Module "$env:workspace\Add-Numbers.psm1"
 Describe -Tags "Example" "Add-Numbers" {
 
     It "adds positive numbers" {
-        Add-Numbers 2 3 | Should Be 5
+        Add-Numbers 2 4 | Should Be 5
     }
 
     It "adds negative numbers" {
