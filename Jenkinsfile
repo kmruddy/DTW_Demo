@@ -10,6 +10,7 @@ pipeline {
         }
         stage('PSScriptAnalyzer') {
           steps {
+            powershell 'Import-Module PSScriptAnalyzer'
             powershell(script: 'Invoke-ScriptAnalyzer -Path "$env:workspace\\add-numbers.psm1"', returnStatus: true)
           }
         }
